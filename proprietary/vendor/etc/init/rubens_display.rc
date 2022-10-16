@@ -1,0 +1,8 @@
+on post-fs-data
+    mkdir /mnt/vendor/persist/display 0770 system system
+	mkdir /data/vendor/display 0770 system graphics
+	write /sys/class/mi_display/disp-DSI-0/calib 1
+
+on boot
+	chown system system /sys/class/mi_display/disp-DSI-0/dc_status
+	chmod 0664 /sys/class/mi_display/disp-DSI-0/dc_status
